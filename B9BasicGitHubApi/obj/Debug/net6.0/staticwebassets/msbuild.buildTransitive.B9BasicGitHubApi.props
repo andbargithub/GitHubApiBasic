@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\B9BasicGitHubApi.props" />
+</Project>
