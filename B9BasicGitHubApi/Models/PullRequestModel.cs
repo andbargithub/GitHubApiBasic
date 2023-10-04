@@ -27,12 +27,15 @@ namespace B9BasicGitHubApi.Models
         
         [JsonProperty("created_at")]
         public DateTime CreatedAt { get; set; }
-        
+
+        [JsonProperty("commits")]
+        public int CommitsAmount {get; set;}
+
         [JsonProperty("labels")]
         public IEnumerable<LabelModel>Labels { get; set; }
 
         [JsonProperty("head")]
-        public HeadModel Head { get; set; }
+        public HeadModel Head { get; set; }        
         public IEnumerable<CommitModel> Commits { get; set; }
         public string Category { get; set; }
         public int? DaysInCategory { get; set; }

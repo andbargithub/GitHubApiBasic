@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\Pessoal\\B9\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj": {}
+    "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\Pessoal\\B9\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj": {
+    "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\Pessoal\\B9\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj",
+        "projectUniqueName": "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj",
         "projectName": "B9BasicGitHubApi",
-        "projectPath": "C:\\Projetos\\Pessoal\\B9\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj",
-        "packagesPath": "C:\\Users\\andba\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\Pessoal\\B9\\B9BasicGitHubApi\\obj\\",
+        "projectPath": "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj",
+        "packagesPath": "C:\\Users\\Anderson.Barcelos\\.nuget\\packages\\",
+        "outputPath": "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\andba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anderson.Barcelos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "net6.0": {
@@ -84,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

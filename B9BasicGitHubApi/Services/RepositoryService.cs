@@ -33,7 +33,7 @@ namespace B9BasicGitHubApi.Services
             _httpClient.DefaultRequestHeaders.Add("User-Agent", "BasicGithubApiInfo");
 
             _configuration = configuration;
-            
+
         }
 
         public IEnumerable<RepositoryModel> GetRepositories(string userName)
@@ -99,17 +99,17 @@ namespace B9BasicGitHubApi.Services
         public IEnumerable<PullRequestModel> GetPullRequests(string userName, string repositoryName, string labelTag, string search)
         {
             ValidateRepository(userName, repositoryName);
-            
+
             var result = this.GetPullRequests(userName, repositoryName);
 
-            if(!String.IsNullOrEmpty(labelTag))
+            if (!String.IsNullOrEmpty(labelTag))
             {
                 result = result.Where(pr => pr.Labels.Select(t => t.Name).Contains(labelTag)).ToList();
             }
 
             if (!String.IsNullOrEmpty(search))
             {
-                result = result.Where(pr => pr.body != null && pr.body.Contains(search)).ToList(); 
+                result = result.Where(pr => pr.body != null && pr.body.Contains(search)).ToList();
             }
 
             return result;
@@ -121,8 +121,8 @@ namespace B9BasicGitHubApi.Services
 
             foreach (var pullRequest in pullRequests)
             {
-                if(pullRequest.Category.Equals(PullRequestCategories.Active.GetDescription())) 
-                { 
+                if (pullRequest.Category.Equals(PullRequestCategories.Active.GetDescription()))
+                {
                     response.Active.Add(pullRequest);
                 }
 
@@ -144,15 +144,15 @@ namespace B9BasicGitHubApi.Services
 
 
 
-        private void ValidateUser(string userName) 
+        private void ValidateUser(string userName)
         {
             String apiRequestUrl = $"{_httpClient.BaseAddress}users/{userName}";
             HttpResponseMessage getingRepositoryDataFromApi = _httpClient.GetAsync(apiRequestUrl).Result;
 
-            if(!getingRepositoryDataFromApi.IsSuccessStatusCode)
+            if (!getingRepositoryDataFromApi.IsSuccessStatusCode)
             {
-                throw new Exception($"Git Hub user not found: {userName}");                
-            }           
+                throw new Exception($"Git Hub user not found: {userName}");
+            }
 
         }
 
@@ -173,7 +173,7 @@ namespace B9BasicGitHubApi.Services
         {
             var response = pullRequest;
 
-            response.Commits = GetPullrequestCommits(pullRequest.Number.Value, userName, repositoryName);
+            //response.Commits = GetPullrequestCommits(pullRequest.Number.Value, userName, repositoryName);
             response.Category = GetPullRequestCategory(pullRequest);
             response.DaysInCategory = CalculateDaysInCategory(response);
             response.CommentsQuantity = GetPullRequestCommentsQuantity(pullRequest.Number.Value, userName, repositoryName);
@@ -181,10 +181,10 @@ namespace B9BasicGitHubApi.Services
             return response;
         }
 
-        
 
-        private Pullrequests ProcessExtraPullRequestsInfo(Pullrequests pullRequests) 
-        { 
+
+        private Pullrequests ProcessExtraPullRequestsInfo(Pullrequests pullRequests)
+        {
             var response = pullRequests;
             var allPullRequests = new List<PullRequestModel>();
 
@@ -207,9 +207,9 @@ namespace B9BasicGitHubApi.Services
 
             var draftLabel = pullRequest.Labels.Where(l => l.Name.Equals(PullRequestCategories.Draft.GetDescription())).FirstOrDefault();
 
-            if (draftLabel != null) 
-            { 
-                response = pullRequest.CreatedAt.AddMonths(1) < DateTime.Today? PullRequestCategories.Stale.GetDescription() : PullRequestCategories.Draft.GetDescription();
+            if (draftLabel != null)
+            {
+                response = pullRequest.CreatedAt.AddMonths(1) < DateTime.Today ? PullRequestCategories.Stale.GetDescription() : PullRequestCategories.Draft.GetDescription();
             }
             else
             {
@@ -237,8 +237,8 @@ namespace B9BasicGitHubApi.Services
         private int CalculateDaysInCategory
             (PullRequestModel pullRequest)
         {
-            var startDate = pullRequest.Category.Equals(PullRequestCategories.Stale.GetDescription())?pullRequest.CreatedAt.AddMonths(1):pullRequest.CreatedAt;
-            
+            var startDate = pullRequest.Category.Equals(PullRequestCategories.Stale.GetDescription()) ? pullRequest.CreatedAt.AddMonths(1) : pullRequest.CreatedAt;
+
             var response = startDate - DateTime.Today;
 
             return response.Days;
@@ -246,21 +246,21 @@ namespace B9BasicGitHubApi.Services
 
         private int CalculateAverageDaysOpen(IEnumerable<PullRequestModel> pullRequests)
         {
-            var response = pullRequests.Count() > 0? pullRequests.Select(pr => (pr.CreatedAt - DateTime.Today).Days).ToList().Average():0;
+            var response = pullRequests.Count() > 0 ? pullRequests.Select(pr => (pr.CreatedAt - DateTime.Today).Days).ToList().Average() : 0;
 
             return Convert.ToInt32(response);
         }
 
-        private IEnumerable<CommitModel> GetPullrequestCommits(int pullRequestNumber, string userName, string repositoryName) 
-        { 
+        private IEnumerable<CommitModel> GetPullrequestCommits(int pullRequestNumber, string userName, string repositoryName)
+        {
             var result = new List<CommitModel>();
 
             String apiRequestUrl = $"{_httpClient.BaseAddress}repos/{userName}/{repositoryName}/pulls/{pullRequestNumber}/commits";
-            
+
             string repositoryRawData = GetRawDataFromApi(apiRequestUrl);
 
             result = JsonConvert.DeserializeObject<List<CommitModel>>(repositoryRawData);
-            
+
             return result;
         }
 
@@ -268,7 +268,7 @@ namespace B9BasicGitHubApi.Services
         {
             String result = String.Empty;
 
-            
+
             HttpResponseMessage getingRepositoryDataFromApi = _httpClient.GetAsync(requestUrl).Result;
 
             if (getingRepositoryDataFromApi.IsSuccessStatusCode)
