@@ -4,10 +4,3 @@
 .B9BasicGitHubApi/bin/*
 .B9BasicGitHubApi/obj/*
 .B9BasicGitHubApiTest/bin/*
-.B9BasicGitHubApiTest/obj/*
-B9BasicGitHubApi/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
-B9BasicGitHubApi/obj/Debug/net6.0/B9BasicGitHubApi.AssemblyInfo.cs
-B9BasicGitHubApi/obj/Debug/net6.0/B9BasicGitHubApi.AssemblyInfoInputs.cache
-B9BasicGitHubApi/obj/Debug/net6.0/B9BasicGitHubApi.csproj.AssemblyReference.cache
-B9BasicGitHubApi/obj/Debug/net6.0/B9BasicGitHubApi.GeneratedMSBuildEditorConfig.editorconfig
-B9BasicGitHubApi/obj/Debug/net6.0/B9BasicGitHubApi.GlobalUsings.g.cs
