@@ -76,7 +76,7 @@ namespace B9BasicGitHubApi.Services
 
             result = JsonConvert.DeserializeObject<List<PullRequestModel>>(repositoryRawData);
 
-            result.ForEach(pr => pr = ProcessPullRequestExtraInfo(pr));
+            result.ForEach(pr => pr = ProcessPullRequestExtraInfo(pr, userName, repositoryName));
             
             return result;
         }
@@ -154,14 +154,14 @@ namespace B9BasicGitHubApi.Services
             }
         }
 
-        private PullRequestModel ProcessPullRequestExtraInfo(PullRequestModel pullRequest)
+        private PullRequestModel ProcessPullRequestExtraInfo(PullRequestModel pullRequest, string userName, string repositoryName)
         {
             var response = pullRequest;
 
-            response.Commits = GetPullrequestCommits(pullRequest);
+            response.Commits = GetPullrequestCommits(pullRequest.Number.Value, userName, repositoryName);
             response.Category = GetPullRequestCategory(pullRequest);
             response.DaysInCategory = CalculateDaysInCategory(response);
-            response.CommentsQuantity = GetPullRequestCommentsQuantity(response);
+            response.CommentsQuantity = GetPullRequestCommentsQuantity(pullRequest.Number.Value, userName, repositoryName);
 
             return response;
         }
@@ -204,11 +204,11 @@ namespace B9BasicGitHubApi.Services
             return response;
         }
 
-        private int GetPullRequestCommentsQuantity(PullRequestModel pullRequest)
+        private int GetPullRequestCommentsQuantity(int pullRequestNumber, string userName, string repositoryName)
         {
             var result = 0;
 
-            String apiRequestUrl = $"{_httpClient.BaseAddress}repos/{pullRequest.Owner.Name}/{pullRequest.Head.Repository.Name}/pulls/{pullRequest.Number.Value}/comments";
+            String apiRequestUrl = $"{_httpClient.BaseAddress}repos/{userName}/{repositoryName}/pulls/{pullRequestNumber}/comments";
 
             string repositoryRawData = GetRawDataFromApi(apiRequestUrl);
 
@@ -236,11 +236,11 @@ namespace B9BasicGitHubApi.Services
             return Convert.ToInt32(response);
         }
 
-        private IEnumerable<CommitModel> GetPullrequestCommits(PullRequestModel pullRequest) 
+        private IEnumerable<CommitModel> GetPullrequestCommits(int pullRequestNumber, string userName, string repositoryName) 
         { 
             var result = new List<CommitModel>();
 
-            String apiRequestUrl = $"{_httpClient.BaseAddress}repos/{pullRequest.Owner.Name}/{pullRequest.Head.Repository.Name}/pulls/{pullRequest.Number.Value}/commits";
+            String apiRequestUrl = $"{_httpClient.BaseAddress}repos/{userName}/{repositoryName}/pulls/{pullRequestNumber}/commits";
             
             string repositoryRawData = GetRawDataFromApi(apiRequestUrl);
 

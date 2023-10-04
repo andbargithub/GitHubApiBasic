@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Anderson\\Pessoal\\Projetos\\B9\\GithubApiBasicInfo\\GithubApiBasicInfo\\B9BasicGitHubApiTest\\B9BasicGitHubApiTest.csproj": {}
+    "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApiTest\\B9BasicGitHubApiTest.csproj": {}
   },
   "projects": {
-    "D:\\Anderson\\Pessoal\\Projetos\\B9\\GithubApiBasicInfo\\GithubApiBasicInfo\\B9BasicGitHubApiTest\\B9BasicGitHubApiTest.csproj": {
+    "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApiTest\\B9BasicGitHubApiTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Anderson\\Pessoal\\Projetos\\B9\\GithubApiBasicInfo\\GithubApiBasicInfo\\B9BasicGitHubApiTest\\B9BasicGitHubApiTest.csproj",
+        "projectUniqueName": "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApiTest\\B9BasicGitHubApiTest.csproj",
         "projectName": "B9BasicGitHubApiTest",
-        "projectPath": "D:\\Anderson\\Pessoal\\Projetos\\B9\\GithubApiBasicInfo\\GithubApiBasicInfo\\B9BasicGitHubApiTest\\B9BasicGitHubApiTest.csproj",
+        "projectPath": "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApiTest\\B9BasicGitHubApiTest.csproj",
         "packagesPath": "C:\\Users\\Anderson.Barcelos\\.nuget\\packages\\",
-        "outputPath": "D:\\Anderson\\Pessoal\\Projetos\\B9\\GithubApiBasicInfo\\GithubApiBasicInfo\\B9BasicGitHubApiTest\\obj\\",
+        "outputPath": "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApiTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Anderson\\Pessoal\\Projetos\\B9\\GithubApiBasicInfo\\GithubApiBasicInfo\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj": {
-                "projectPath": "D:\\Anderson\\Pessoal\\Projetos\\B9\\GithubApiBasicInfo\\GithubApiBasicInfo\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj"
+              "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj": {
+                "projectPath": "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj"
               }
             }
           }
@@ -98,14 +98,14 @@
         }
       }
     },
-    "D:\\Anderson\\Pessoal\\Projetos\\B9\\GithubApiBasicInfo\\GithubApiBasicInfo\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj": {
+    "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Anderson\\Pessoal\\Projetos\\B9\\GithubApiBasicInfo\\GithubApiBasicInfo\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj",
+        "projectUniqueName": "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj",
         "projectName": "B9BasicGitHubApi",
-        "projectPath": "D:\\Anderson\\Pessoal\\Projetos\\B9\\GithubApiBasicInfo\\GithubApiBasicInfo\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj",
+        "projectPath": "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj",
         "packagesPath": "C:\\Users\\Anderson.Barcelos\\.nuget\\packages\\",
-        "outputPath": "D:\\Anderson\\Pessoal\\Projetos\\B9\\GithubApiBasicInfo\\GithubApiBasicInfo\\B9BasicGitHubApi\\obj\\",
+        "outputPath": "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

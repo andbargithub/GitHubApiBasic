@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LAVLfaPBXf3/+uC8v7maiUkHfK6czvdNj4oT8WIKib6oIRIB88icVTdcB00vhNeZlC3Ch8yqiMf2j6r5EraaUw==",
+  "dgSpecHash": "7ukYfNy//nEM27w9JEi3oNmr8ux3EUZpqTzvomhqvYdwzJGferbi53TNjgSr5dtdIJTIdaHs90EpvcJc3VwE9w==",
   "success": true,
-  "projectFilePath": "D:\\Anderson\\Pessoal\\Projetos\\B9\\GithubApiBasicInfo\\GithubApiBasicInfo\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj",
+  "projectFilePath": "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApi\\B9BasicGitHubApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Anderson.Barcelos\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.9\\microsoft.aspnet.webapi.client.5.2.9.nupkg.sha512",
     "C:\\Users\\Anderson.Barcelos\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.2.9\\microsoft.aspnet.webapi.core.5.2.9.nupkg.sha512",

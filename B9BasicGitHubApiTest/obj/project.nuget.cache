@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Q9MgMg8muE75g6yD6SDvqlZ+/SmRn36rfkOYK4rJaHjt1kxtTpdKDMKaT4z7ktiQrGPjaPKCp5mvcIqkoVuubw==",
+  "dgSpecHash": "T3l7Nof/+kCzpOB+iGK0omWRmZKNVESweEHf73ri+Xb+KvOMbyZXHeDxDfwN87FL+7uv0UIvq9RXAIP5ushOxw==",
   "success": true,
-  "projectFilePath": "D:\\Anderson\\Pessoal\\Projetos\\B9\\GithubApiBasicInfo\\GithubApiBasicInfo\\B9BasicGitHubApiTest\\B9BasicGitHubApiTest.csproj",
+  "projectFilePath": "D:\\Anderson\\Pessoal\\Projetos\\GitHubBasicApi\\GitHubApiBasic\\B9BasicGitHubApiTest\\B9BasicGitHubApiTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Anderson.Barcelos\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Anderson.Barcelos\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.9\\microsoft.aspnet.webapi.client.5.2.9.nupkg.sha512",
