@@ -12,6 +12,9 @@ namespace B9BasicGitHubApi.Services
     {
         private Uri _githubApiUrl = new Uri("https://api.github.com");
         private HttpClient _httpClient;
+        private IConfiguration _configuration;
+        private readonly int AMOUNT_OF_PULL_REQUESTS_IN_LIMITED_CONTEXT = 2;
+
 
         public enum PullRequestCategories
         {
@@ -23,12 +26,14 @@ namespace B9BasicGitHubApi.Services
             Stale,
         }
 
-        public RepositoryService()
+        public RepositoryService(IConfiguration configuration)
         {
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = _githubApiUrl;
             _httpClient.DefaultRequestHeaders.Add("User-Agent", "BasicGithubApiInfo");
 
+            _configuration = configuration;
+            
         }
 
         public IEnumerable<RepositoryModel> GetRepositories(string userName)
@@ -76,8 +81,18 @@ namespace B9BasicGitHubApi.Services
 
             result = JsonConvert.DeserializeObject<List<PullRequestModel>>(repositoryRawData);
 
+            bool githubUnlimitedCalls = false;
+
+            if (Boolean.TryParse(_configuration["UnlimitedGithubCalls"], out githubUnlimitedCalls))
+            {
+                if (!githubUnlimitedCalls)
+                {
+                    result = result.GetRange(0, AMOUNT_OF_PULL_REQUESTS_IN_LIMITED_CONTEXT);
+                }
+            }
+
             result.ForEach(pr => pr = ProcessPullRequestExtraInfo(pr, userName, repositoryName));
-            
+
             return result;
         }
 

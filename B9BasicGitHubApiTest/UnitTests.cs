@@ -5,6 +5,7 @@ using B9BasicGitHubApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -18,6 +19,7 @@ namespace B9BasicGitHubApiTest
 
         WebApplicationFactory<Program> _applicationFactory;
         HttpClient _httpClient;
+        public static IConfiguration _configuration { get; set; }
 
 
         //Provide a valid username
@@ -37,7 +39,9 @@ namespace B9BasicGitHubApiTest
         {
             _applicationFactory = new WebApplicationFactory<Program>();            
             _httpClient = _applicationFactory.CreateClient();
-            _repositoryService = new RepositoryService();
+
+
+            _repositoryService = new RepositoryService(_configuration);
             
         }
 
