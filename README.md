@@ -60,3 +60,7 @@ The Solution is composed by 2 Projects:
 	Please note that not all approaches chosen were the best for the scenario, but were implemented to show how I work, organize and know concepts of OO, Extension Methods (see Extensions\EnumExtension.cs file, implementation of GetDescritpion Method), Dependency Injection and others.
 	
 	Thank you for your time and feel free to let your impression about these tasks in this repository.
+
+ * While testing it in a large repository, the limit rate was quickly reached, so, I updated the code to allow to limit the number of Pull Requests to grab from the repository. There is a setting on AppSettings, called "UnlimitedGithubCalls" which activate this limit.
+   
+ * The amount of Pull Requests to get is set by the constant "AMOUNT_OF_PULL_REQUESTS_IN_LIMITED_CONTEXT" in the ReposioryService class
