@@ -1,6 +1,6 @@
-
-.vs/*
-.vscode/*
-.B9BasicGitHubApi/bin/*
-.B9BasicGitHubApi/obj/*
-.B9BasicGitHubApiTest/bin/*
+**/.vs
+**/.vscode
+**/B9BasicGitHubApi/bin
+**/B9BasicGitHubApi/obj
+**/B9BasicGitHubApiTest/bin
+**/B9BasicGitHubApiTest/obj
