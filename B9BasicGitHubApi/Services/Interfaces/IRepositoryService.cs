@@ -11,6 +11,7 @@ namespace B9BasicGitHubApi.Services.Interfaces
         IEnumerable<PullRequestModel> GetPullRequests(string userName, string repositoryName);
         IEnumerable<PullRequestModel> GetPullRequests(string userName, string repositoryName, string label, string search);
         Pullrequests ProcessPullRequestsToResponseStructure(IEnumerable<PullRequestModel> pullRequests);
+        PullRequestModel GetPullRequest(string userName, string repositoryName, int repositoryNumber);
 
     }
 }

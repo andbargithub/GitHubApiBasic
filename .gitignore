@@ -4,3 +4,6 @@
 **/B9BasicGitHubApi/obj
 **/B9BasicGitHubApiTest/bin
 **/B9BasicGitHubApiTest/obj
+*.vsidx
+*.vsidx
+.vs/GithubApiBasicInfo/v17/.suo

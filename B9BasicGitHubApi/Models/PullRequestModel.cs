@@ -30,15 +30,14 @@ namespace B9BasicGitHubApi.Models
 
         [JsonProperty("commits")]
         public int CommitsAmount {get; set;}
-
+        [JsonProperty("comments")]
+        public int? CommentsAmount { get; set; }
         [JsonProperty("labels")]
         public IEnumerable<LabelModel>Labels { get; set; }
-
         [JsonProperty("head")]
-        public HeadModel Head { get; set; }        
-        public IEnumerable<CommitModel> Commits { get; set; }
+        public HeadModel Head { get; set; }                
         public string Category { get; set; }
         public int? DaysInCategory { get; set; }
-        public int? CommentsQuantity { get; set; }
+        
     }
 }
