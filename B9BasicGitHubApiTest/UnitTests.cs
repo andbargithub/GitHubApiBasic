@@ -73,8 +73,8 @@ namespace B9BasicGitHubApiTest
             {
                 Id = 1,
                 Title = "Test",
-                Labels = new List<LabelModel> { new LabelModel { Name = "test" } },
-                CreatedAt = DateTime.Today.AddDays(-7),
+                IsDraft = false,
+                CreatedAt = DateTime.Today.AddDays(-40),
             };
 
             var response = _repositoryService.GetPullRequestCategory(pullRequestActive);
@@ -91,7 +91,7 @@ namespace B9BasicGitHubApiTest
             {
                 Id = 2,
                 Title = "Test 2",
-                Labels = new List<LabelModel> { new LabelModel { Name = "draft" } },
+                IsDraft = true,
                 CreatedAt = DateTime.Today.AddDays(-7),
             };
 
@@ -109,7 +109,7 @@ namespace B9BasicGitHubApiTest
             {
                 Id = 3,
                 Title = "Test 3",
-                Labels = new List<LabelModel> { new LabelModel { Name = "draft" } },
+                IsDraft = true,
                 CreatedAt = DateTime.Today.AddDays(-40),
             };
 
