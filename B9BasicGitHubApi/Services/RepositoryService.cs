@@ -85,7 +85,7 @@ namespace B9BasicGitHubApi.Services
 
             if (Boolean.TryParse(_configuration["UnlimitedGithubCalls"], out githubUnlimitedCalls))
             {
-                if (!githubUnlimitedCalls)
+                if (!githubUnlimitedCalls && result.Count > AMOUNT_OF_PULL_REQUESTS_IN_LIMITED_CONTEXT)
                 {
                     result = result.GetRange(0, AMOUNT_OF_PULL_REQUESTS_IN_LIMITED_CONTEXT);
                 }
