@@ -154,7 +154,7 @@ namespace B9BasicGitHubApi.Services
                 }
             }
 
-            response = ProcessOullRequestsCalculateAverages(response);
+            response = ProcessPullRequestsCalculateAverages(response);
 
             return response;
         }
@@ -199,7 +199,7 @@ namespace B9BasicGitHubApi.Services
 
 
 
-        private Pullrequests ProcessOullRequestsCalculateAverages(Pullrequests pullRequests)
+        private Pullrequests ProcessPullRequestsCalculateAverages(Pullrequests pullRequests)
         {
             var response = pullRequests;
             var allPullRequests = new List<PullRequestModel>();
@@ -221,9 +221,7 @@ namespace B9BasicGitHubApi.Services
         {
             var response = String.Empty;
 
-            var draftLabel = pullRequest.Labels.Where(l => l.Name.Equals(PullRequestCategories.Draft.GetDescription())).FirstOrDefault();
-
-            if (draftLabel != null)
+            if (pullRequest.IsDraft)
             {
                 response = pullRequest.CreatedAt.AddMonths(1) < DateTime.Today ? PullRequestCategories.Stale.GetDescription() : PullRequestCategories.Draft.GetDescription();
             }
@@ -240,14 +238,14 @@ namespace B9BasicGitHubApi.Services
         {
             var startDate = pullRequest.Category.Equals(PullRequestCategories.Stale.GetDescription()) ? pullRequest.CreatedAt.AddMonths(1) : pullRequest.CreatedAt;
 
-            var response = startDate - DateTime.Today;
+            var response = DateTime.Now - startDate;
 
             return response.Days;
         }
 
         private int CalculateAverageDaysOpen(IEnumerable<PullRequestModel> pullRequests)
         {
-            var response = pullRequests.Count() > 0 ? pullRequests.Select(pr => (pr.CreatedAt - DateTime.Today).Days).ToList().Average() : 0;
+            var response = pullRequests.Count() > 0 ? pullRequests.Select(pr => pr.DaysInCategory).ToList().Average() : 0;
 
             return Convert.ToInt32(response);
         }
