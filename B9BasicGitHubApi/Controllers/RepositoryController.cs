@@ -55,7 +55,7 @@ namespace B9BasicGitHubApi.Controllers
         }
 
         [HttpGet, Route("PullRequests/List")]
-        public async Task<IActionResult> GetPullrequests([FromQuery] PullRequestRequestModel request)
+        public async Task<IActionResult> GetPullrequests([FromQuery] PullRequestsRequestModel request)
         {
             var response = new Pullrequests();
 
@@ -64,6 +64,26 @@ namespace B9BasicGitHubApi.Controllers
                 var pullRequests = _repositoryService.GetPullRequests(request.Name, request.RepositoryName, request.LabelTag, request.Search).ToList();
                 response = _repositoryService.ProcessPullRequestsToResponseStructure(pullRequests);
                 
+            }
+            catch (Exception error)
+            {
+                return BadRequest(error.Message);
+            }
+
+            return Ok(response);
+
+
+        }
+
+
+        [HttpGet, Route("PullRequest")]
+        public async Task<IActionResult> GetPullRequest([FromQuery] PullRequestRequestModel request)
+        {
+            var response = new PullRequestModel();
+
+            try
+            {
+                response = _repositoryService.GetPullRequest(request.Name, request.RepositoryName, request.PullRequestNumber);
             }
             catch (Exception error)
             {

@@ -13,7 +13,7 @@ namespace B9BasicGitHubApi.Services
         private Uri _githubApiUrl = new Uri("https://api.github.com");
         private HttpClient _httpClient;
         private IConfiguration _configuration;
-        private readonly int AMOUNT_OF_PULL_REQUESTS_IN_LIMITED_CONTEXT = 2;
+        private readonly int AMOUNT_OF_PULL_REQUESTS_IN_LIMITED_CONTEXT = 7;
 
 
         public enum PullRequestCategories
@@ -96,6 +96,23 @@ namespace B9BasicGitHubApi.Services
             return result;
         }
 
+        public PullRequestModel GetPullRequest(string userName, string repositoryName, int repositoryNumber)
+        {
+            ValidateRepository(userName, repositoryName);
+
+            var result = new PullRequestModel();
+
+            String apiRequestUrl = $"{_httpClient.BaseAddress}repos/{userName}/{repositoryName}/pulls/{repositoryNumber}";
+
+            string repositoryRawData = GetRawDataFromApi(apiRequestUrl);
+
+            result = JsonConvert.DeserializeObject<PullRequestModel>(repositoryRawData);
+
+            result = ProcessPullRequestExtraInfo(result, userName, repositoryName);
+
+            return result;
+        }
+
         public IEnumerable<PullRequestModel> GetPullRequests(string userName, string repositoryName, string labelTag, string search)
         {
             ValidateRepository(userName, repositoryName);
@@ -137,7 +154,7 @@ namespace B9BasicGitHubApi.Services
                 }
             }
 
-            response = ProcessExtraPullRequestsInfo(response);
+            response = ProcessOullRequestsCalculateAverages(response);
 
             return response;
         }
@@ -173,17 +190,16 @@ namespace B9BasicGitHubApi.Services
         {
             var response = pullRequest;
 
-            //response.Commits = GetPullrequestCommits(pullRequest.Number.Value, userName, repositoryName);
             response.Category = GetPullRequestCategory(pullRequest);
             response.DaysInCategory = CalculateDaysInCategory(response);
-            response.CommentsQuantity = GetPullRequestCommentsQuantity(pullRequest.Number.Value, userName, repositoryName);
+            
 
             return response;
         }
 
 
 
-        private Pullrequests ProcessExtraPullRequestsInfo(Pullrequests pullRequests)
+        private Pullrequests ProcessOullRequestsCalculateAverages(Pullrequests pullRequests)
         {
             var response = pullRequests;
             var allPullRequests = new List<PullRequestModel>();
@@ -218,22 +234,7 @@ namespace B9BasicGitHubApi.Services
 
             return response;
         }
-
-        private int GetPullRequestCommentsQuantity(int pullRequestNumber, string userName, string repositoryName)
-        {
-            var result = 0;
-
-            String apiRequestUrl = $"{_httpClient.BaseAddress}repos/{userName}/{repositoryName}/pulls/{pullRequestNumber}/comments";
-
-            string repositoryRawData = GetRawDataFromApi(apiRequestUrl);
-
-            var response = JsonConvert.DeserializeObject<List<CommitModel>>(repositoryRawData);
-
-            result = response.Count();
-
-            return result;
-        }
-
+        
         private int CalculateDaysInCategory
             (PullRequestModel pullRequest)
         {
@@ -249,19 +250,6 @@ namespace B9BasicGitHubApi.Services
             var response = pullRequests.Count() > 0 ? pullRequests.Select(pr => (pr.CreatedAt - DateTime.Today).Days).ToList().Average() : 0;
 
             return Convert.ToInt32(response);
-        }
-
-        private IEnumerable<CommitModel> GetPullrequestCommits(int pullRequestNumber, string userName, string repositoryName)
-        {
-            var result = new List<CommitModel>();
-
-            String apiRequestUrl = $"{_httpClient.BaseAddress}repos/{userName}/{repositoryName}/pulls/{pullRequestNumber}/commits";
-
-            string repositoryRawData = GetRawDataFromApi(apiRequestUrl);
-
-            result = JsonConvert.DeserializeObject<List<CommitModel>>(repositoryRawData);
-
-            return result;
         }
 
         private String GetRawDataFromApi(string requestUrl)

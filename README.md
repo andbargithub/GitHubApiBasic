@@ -49,7 +49,7 @@ The Solution is composed by 2 Projects:
 	B9BasicGitHubApiTest.csproj: The Tests Project which meets the requirement 3 above
 	
 	Where to find the approach for each requirement
-		Requirement 1.1 is implemented in Models\RequestModels\PullRequestRequestModel.cs
+		Requirement 1.1 is implemented in Models\RequestModels\PullRequestsRequestModel.cs
 		Requirement 1.2 is implemented in Models\PullRequestModel.cs				
 		Requirement 2.1 is implemented in Services\RepositoryService.cs, method "GetPullRequestCategory"
 		Requirement 2.2 is implemented in Models\RequestModels\PullRequestResponseModel.cs

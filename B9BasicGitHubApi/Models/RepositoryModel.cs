@@ -17,7 +17,7 @@ namespace B9BasicGitHubApi.Models
         public string? Url { get; set; }
         [JsonProperty("description")]
         public string? Description { get; set; }
-        public IEnumerable<PullRequestModel>OpenedPullRequests { get; set; }
+        
 
 
 
